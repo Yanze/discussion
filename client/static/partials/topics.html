@@ -1,0 +1,68 @@
+<div class="col-md-12">
+  <h2>Hello {{username}}</h2>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="active" >
+        <th>Category</th>
+        <th>Topic</th>
+        <th>User Name</th>
+        <th>Answers</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="topic in topics">
+        <td>{{topic.category}}</td>
+        <td><a href="#/topic/{{topic._id}}">{{topic.title}}</a></td>
+        <td><a href="#/user/{{topic._user._id}}">{{topic._user.name}}</a></td>
+        <td>{{topic.answers.length}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="col-md-6">
+    <h2>Add a new topic</h2>
+    <p class="alert alert-danger" ng-show="warning">{{warning}}</p>
+    <form name="myForm" novalidate>
+      <div class="form-group">
+        <label>Topic</label>
+        <input name="myText" type="text" class="form-control" ng-model="new_topic.title" required>
+      </div>
+      <div ng-messages="myForm.myText.$error" style="color:red" role="alert" ng-if="submitted">
+        <div ng-message="required">Please enter a topic</div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea name="myDescription" class="form-control" rows="4" cols="40" ng-model="new_topic.description" required ng-minlength="5" ng-maxlength="100"></textarea>
+      </div>
+      <div ng-messages="myForm.myDescription.$error" style="color:red" role="alert" ng-if="submitted" >
+        <div ng-message="required">Please enter a description</div>
+        <div ng-message="minlength">Topic description is too short</div>
+        <div ng-message="maxlength">Topic description is too long</div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Category</label>
+        <select name="myCategory" class="form-control" ng-model="new_topic.category" required>
+          <option value="HTML">HTML</option>
+          <option value="PHP">PHP</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Ruby">Ruby</option>
+          <option value="Whatever">Whatever</option>
+        </select>
+      </div>
+      <div ng-messages="myForm.myCategory.$error" style="color:red" role="alert" ng-if="submitted">
+        <div ng-message="required">Please enter a description</div>
+      </div>
+
+
+      <button class="btn btn-primary pull-right" ng-click="addTopic()">Add</button>
+    </form>
+  </div>
+
+
+</div>

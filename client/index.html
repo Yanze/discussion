@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Full Mean Demo="support tag from-rainbow"</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <!-- require angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-messages.min.js"></script>
+
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/factories/answerFactory.js"></script>
+  <script src="/static/js/factories/topicFactory.js"></script>
+  <script src="/static/js/factories/userFactory.js"></script>
+  <script src="/static/js/controllers/loginController.js"></script>
+  <script src="/static/js/controllers/topicController.js"></script>
+  <script src="/static/js/controllers/topicsController.js"></script>
+  <script src="/static/js/controllers/userController.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+  <a href="#/topics">Home</a> | <a href="#/">Logout</a>
+  <div class="container" ng-view>
+
+  </div>
+</body>
+
+</html>

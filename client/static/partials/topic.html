@@ -1,0 +1,35 @@
+<div class="col-md-12">
+  <h2>{{topic._user.name}} posted a topic: </h2>
+  <h3>{{topic.title}}</h3>
+  <p>{{topic.description}}</p>
+
+  <div class="add_answer">
+    <form name="myForm" novalidate>
+      <div class="form-group">
+        <label>Post your answer here:</label>
+        <textarea ng-model="new_answer.text" class="form-control" name="myAnswer" rows="4" cols="40" required ng-minlength="10" ng-maxlength="140"></textarea>
+      </div>
+      <div ng-messages="myForm.myAnswer.$error" style="color:red" role="alert" ng-if="submitted">
+        <div ng-message="required">You cannot submit an empty answer.</div>
+        <div ng-message="minlength">Your answer must be longger than 10 letters.</div>
+        <div ng-message="maxlength">Your answer must be less than 140 letters.</div>
+      </div>
+      <button class="btn btn-primary pull-right" ng-click="addAnswer()">Add Answer</button>
+    </form>
+  </div>
+<hr>
+  <div class="show-answers col-md-10 col-md-offset-1" ng-repeat="answer in topic.answers">
+    <!-- show answers here -->
+    <h3>{{answer._user.name}} says: {{answer.text}}</h3>
+
+    <!-- add answer -->
+    <!-- <form>
+      <div class="form-group">
+        <textarea ng-model="new_comment.text" class="form-control" name="myComment" rows="4" cols="40" required ng-minlength="10" ng-maxlength="140"></textarea>
+      </div>
+    </form> -->
+      <hr>
+  </div>
+
+
+</div>
